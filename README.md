@@ -13,6 +13,33 @@ You can follow below link to learn how to  add AAR file to your project
 
 [http://docs.onemobilesdk.aol.com/android-ad-sdk/adding-aar-files.html](http://docs.onemobilesdk.aol.com/android-ad-sdk/adding-aar-files.html)
 
+
+# Add certificate for TLS :
+
+1) Add a new android resource raw directory inside res directory
+2) Copy and paste the "cert.pem" file inside raw directory
+
+# Add Netwrok Security for TLS :
+
+1) Add a new android resource xml directory inside res directory
+2) Add a new xml resource file inside xml directory and name it as "network_security_config.xml"
+3) Copy and paste the following code in "network_security_config.xml"
+
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">gnani.ai</domain>
+        <trust-anchors>
+            <certificates src="@raw/cert"/>
+        </trust-anchors>
+    </domain-config>
+</network-security-config>
+
+# Enable TLS in Manifest :
+1) Copy and paste the following code in application tag inside "AndroidManifest.xml"
+
+android:networkSecurityConfig="@xml/network_security_config"
+
+
 # Credentials and Access
 
 You have to declare our service in the app where you are using the aar file

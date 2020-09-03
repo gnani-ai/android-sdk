@@ -3,6 +3,7 @@
 
 
 
+
 # Steps
 
 Clone the given repo 
@@ -67,6 +68,8 @@ You have to declare our service in the app where you are using the aar file
 SpeechService.Listener, Recorder.RecordingStatusListener
 
 2.  Add the following code in onCreate method
+
+
 
 Recorder.bind(yourContext);
 
